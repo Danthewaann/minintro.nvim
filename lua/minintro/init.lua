@@ -40,7 +40,7 @@ local function draw_minintro(buf, logo_width, logo_height)
 
 	local col_offset_spaces = {}
 	for _ = 1, start_col do table.insert(col_offset_spaces, " ") end
-	local col_offset = table.concat(col_offset_spaces, '')
+	local col_offset = table.concat(col_offset_spaces, "")
 
 	local adjusted_logo = {}
 	for _, line in ipairs(intro_logo) do
@@ -73,11 +73,13 @@ local function create_and_set_minintro_buf(default_buff)
 end
 
 local function set_options()
-	vim.opt_local.number = false         -- disable line numbers
+	vim.opt_local.signcolumn = "no"  -- disable signcolumn
+	vim.opt_local.cursorline = false -- disable cursorline
+	vim.opt_local.number = false     -- disable line numbers
 	vim.opt_local.relativenumber = false -- disable relative line numbers
-	vim.opt_local.list = false           -- disable displaying whitespace
-	vim.opt_local.fillchars = { eob = ' ' } -- do not display "~" on each new line
-	vim.opt_local.colorcolumn = "0"      -- disable colorcolumn
+	vim.opt_local.list = false       -- disable displaying whitespace
+	vim.opt_local.fillchars = { eob = " " } -- do not display "~" on each new line
+	vim.opt_local.colorcolumn = "0"  -- disable colorcolumn
 end
 
 local function redraw()
